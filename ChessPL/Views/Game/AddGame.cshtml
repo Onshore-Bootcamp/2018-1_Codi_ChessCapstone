@@ -1,0 +1,61 @@
+﻿@using CapstonePL.Models
+@model GamePO
+
+@{
+    ViewBag.Title = "AddGame";
+}
+@using (Html.BeginForm("AddGame", "Game", FormMethod.Post))
+{
+
+
+
+
+    <div class="form-horizontal">
+        @Html.DropDownListFor(model => Model.White, Model.PlayersDropDown, "--Please choose White Player--")
+        @Html.ValidationMessageFor(model => Model.White)
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.WhiteRating)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.WhiteRating, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        @Html.DropDownListFor(model => Model.Black, Model.PlayersDropDown, "--Please choose Black Player--")
+        @Html.ValidationMessageFor(model => Model.Black)
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.BlackRating)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.BlackRating, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.Location)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.Location, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <p>Date format: yyyy-mm-dd</p>
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.DatePlayed)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.DatePlayed, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.Winner)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.Winner, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <input type="submit" value="Submit" class="submitbtn" />
+}
+

@@ -1,0 +1,50 @@
+﻿@using CapstonePL.Models
+@model List<GamePO>
+@{
+    ViewBag.Title = "Index";
+}
+<table class="table">
+    <thead>
+        <tr>
+            @if ((int)Session["UserRoleId"] >= 2)
+            {
+                <th>@Html.ActionLink("Add New Game", "AddGame", "Game", new { @class = "functionbtn" })</th>
+            }
+
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <th>White Player</th>
+            <th>Black Player</th>
+            <th>Winner</th>
+        </tr>
+    </thead>
+    <tbody class="table">
+        @foreach (GamePO displayObject in Model)
+        {
+            <tr>
+                <td>@displayObject.WhiteName</td>
+                <td>@displayObject.BlackName</td>
+                <td>@displayObject.Winner</td>
+                <td>@Html.ActionLink("Details", "DetailGame", "Game", new { gameId = displayObject.GameId }, new { @class = "functionbtn" })</td>
+
+                @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] >= 2)
+                {
+                    <td>
+                        @Html.ActionLink("Update", "UpdateGame", "Game", new { gameId = displayObject.GameId }, new { @class = "functionbtn", onclick = "return confirm('Are you sure you wish to update this item?');" })
+                    </td>
+                }
+
+                @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] == 3)
+                {
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteGame", "Game", new { gameId = displayObject.GameId }, new { @class="functionbtn", onclick = "return confirm('Are you sure you wish to delete this item?');" })
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+

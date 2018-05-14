@@ -1,0 +1,72 @@
+
+2/26/2018 9:59:07 AM
+Warning: ChessPL 
+Object reference not set to an instance of an object.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 71
+
+
+2/27/2018 3:26:11 PM
+Warning: ChessPL 
+Object reference not set to an instance of an object.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 75
+
+
+2/28/2018 10:57:59 AM
+Warning: ChessPL 
+Object reference not set to an instance of an object.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 84
+
+
+2/28/2018 1:03:18 PM
+Warning: ChessPL 
+Unable to cast object of type 'CapstonePL.Models.FavoritePlayerPO' to type 'System.Web.Mvc.SelectListItem'.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 83
+
+
+2/28/2018 1:26:28 PM
+Warning: ChessPL 
+Unable to cast object of type 'CapstonePL.Models.FavoritePlayerPO' to type 'System.Web.Mvc.SelectListItem'.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 83
+
+
+2/28/2018 1:27:45 PM
+Warning: ChessPL 
+Unable to cast object of type 'CapstonePL.Models.FavoritePlayerPO' to type 'System.Web.Mvc.SelectListItem'.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 83
+
+
+2/28/2018 1:28:12 PM
+Warning: ChessPL 
+Unable to cast object of type 'CapstonePL.Models.FavoritePlayerPO' to type 'System.Web.Mvc.SelectListItem'.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 83
+
+
+2/28/2018 2:22:48 PM
+Warning: ChessPL 
+Unable to cast object of type 'CapstonePL.Models.FavoritePlayerPO' to type 'System.Web.Mvc.SelectListItem'.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 83
+
+
+2/28/2018 2:26:15 PM
+Warning: ChessPL 
+Unable to cast object of type 'CapstonePL.Models.FavoritePlayerPO' to type 'System.Web.Mvc.SelectListItem'.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 83
+
+
+2/28/2018 2:34:00 PM
+Warning: ChessPL 
+Unable to cast object of type 'CapstonePL.Models.FavoritePlayerPO' to type 'System.Web.Mvc.SelectListItem'.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 83
+
+
+2/28/2018 2:37:00 PM
+Warning: ChessPL 
+Unable to cast object of type 'CapstonePL.Models.FavoritePlayerPO' to type 'System.Web.Mvc.SelectListItem'.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 83
+
+
+2/28/2018 2:41:35 PM
+Warning: ChessPL 
+Object reference not set to an instance of an object.
+   at CapstonePL.Controllers.GameController.AddGame() in C:\Users\Codi\source\repos\ChessCapstone2\ChessPL\Controllers\GameController.cs:line 84
+

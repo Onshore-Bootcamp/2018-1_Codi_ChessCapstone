@@ -1,0 +1,38 @@
+﻿@using CapstonePL.Models
+@model List<UserPO>
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" href="~/Content/Site.css" />
+<table class="table">
+    <thead>
+        <tr>
+            @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] == 3)
+            {
+                <th>@Html.ActionLink("Add User", "AddUser", "User", new { @class = "functionbtn" })</th>
+            }
+        </tr>
+        <tr>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody class="table">
+        @foreach (UserPO displayObject in Model)
+        {
+            <tr>
+                <td>@displayObject.Username</td>
+                @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] == 3)
+                {
+
+                    <td>@Html.ActionLink("Details", "UserDetails", "User", new { UserId = displayObject.UserId }, new { @class = "functionbtn" })</td>
+
+                    <td>@Html.ActionLink("Update", "UpdateUser", "User", new { UserId = displayObject.UserId }, new { @class = "functionbtn", onclick = "return confirm('Are you sure you wish to update this item?');" })</td>
+
+                    <td>@Html.ActionLink("Delete", "DeleteUser", "User", new { UserId = displayObject.UserId }, new { @class = "functionbtn", onclick = "return confirm('Are you sure you wish to delete this item?');" })</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+

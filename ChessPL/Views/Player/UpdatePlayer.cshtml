@@ -1,0 +1,61 @@
+﻿@using CapstonePL.Models
+@model PlayerPO
+@{
+    ViewBag.Title = "UpdatePlayer";
+}
+@using (Html.BeginForm("UpdatePlayer", "Player", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => Model.PlayerId)
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.Name)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => Model.Name)
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.PeakRating)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.PeakRating, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => Model.PeakRating)
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.BirthDate)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.BirthDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => Model.BirthDate)
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.Dead)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.Dead, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.CountryOfOrigin)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.CountryOfOrigin, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => Model.CountryOfOrigin)
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        @Html.LabelFor(model => Model.CountryRepresented)
+        <div class="form-group">
+            @Html.TextBoxFor(model => Model.CountryRepresented, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => Model.CountryRepresented)
+        </div>
+    </div>
+
+    <input type="submit" value="Submit" class="submitbtn" />
+}
+

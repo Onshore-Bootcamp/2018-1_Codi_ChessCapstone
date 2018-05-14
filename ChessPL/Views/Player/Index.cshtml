@@ -1,0 +1,51 @@
+﻿@using CapstonePL.Models
+@model List<PlayerPO>
+@{
+    ViewBag.Title = "Index";
+}
+<table class="table">
+    <thead>
+        <tr>
+            @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] >= 1)
+            {
+                <th>@Html.ActionLink("Players/Wins", "PlayersByWins", "Player", new { @class = "functionbtn" })</th>
+            }
+            @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] >= 2)
+            {
+                <th>@Html.ActionLink("Add New Player", "AddPlayer", "Player", new { @class = "functionbtn" })</th>
+            }
+
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Birth Date</th>
+            <th>Death Date</th>
+            <th>Country of Origin</th>
+        </tr>
+    </thead>
+    <tbody class="table">
+        @foreach (PlayerPO displayObject in Model)
+        {
+            <tr>
+                <td>@displayObject.Name</td>
+                <td>@displayObject.BirthDate</td>
+                <td>@displayObject.Dead</td>
+                <td>@displayObject.CountryOfOrigin</td>
+                <td>@Html.ActionLink("Details", "DetailPlayer", "Player", new { PlayerId = displayObject.PlayerId }, new { @class = "functionbtn" })</td>
+
+                @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] >= 2)
+                {
+                    <td>@Html.ActionLink("Update", "UpdatePlayer", "Player", new { PlayerId = displayObject.PlayerId }, new { @class = "functionbtn", onclick = "return confirm('Are you sure you wish to update this item?');" })</td>
+                }
+
+                @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] == 3)
+                {
+                    <td>@Html.ActionLink("Delete", "DeletePlayer", "Player", new { PlayerId = displayObject.PlayerId }, new { @class = "functionbtn", onclick = "return confirm('Are you sure you wish to delete this item?');" })</td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>

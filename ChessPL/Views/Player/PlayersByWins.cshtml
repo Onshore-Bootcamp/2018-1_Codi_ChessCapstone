@@ -1,0 +1,32 @@
+﻿@using ChessPL.Models
+@model List<WinsPO>
+@{
+    ViewBag.Title = "PlayersByWins";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number of Wins</th>
+        </tr>
+    </thead>
+    <tbody class="table">
+        @foreach (WinsPO displayObject in Model)
+        {
+            <tr>
+                <td>@displayObject.Winner</td>
+                <td>@displayObject.Wins</td>
+                @if ((int?)Session["UserRoleId"] != null && (int?)Session["UserRoleId"] >= 1)
+                {
+
+                    <td>@Html.ActionLink("Back to Index", "Index", "Player", new { @class = "functionbtn" })</td>
+
+                    <td>@Html.ActionLink("Details", "ReadPlayerByName", "Player", new { winner = displayObject.Winner, wins = displayObject.Wins }, new { @class = "functionbtn" })</td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,47 @@
+﻿@using CapstonePL.Models
+@model List<UserPO>
+@{
+    ViewBag.Title = "UserDetails";
+}
+<table class="table">
+    <thead>
+
+    </thead>
+    <tbody class="table">
+        @foreach (UserPO displayObject in Model)
+        {
+            <tr>
+                <th>Username</th>
+                <td>@displayObject.Username</td>
+            </tr>
+
+            <tr>
+                <th>Last Name</th>
+                <td>@displayObject.LastName</td>
+            </tr>
+
+            <tr>
+                <th>First Name</th>
+                <td>@displayObject.FirstName</td>
+            </tr>
+
+            <tr>
+                <th>Email</th>
+                <td>@displayObject.Email</td>
+            </tr>
+
+            <tr>
+                <td>@Html.ActionLink("Update", "UpdateUser", "User", new { UserId = displayObject.UserId }, new { @class = "functionbtn", onclick = "return confirm('Are you sure you wish to update this item?');" })</td>
+            </tr>
+
+            <tr>
+                <td>@Html.ActionLink("Delete", "DeleteUser", "User", new { UserId = displayObject.UserId }, new { @class = "functionbtn", onclick = "return confirm('Are you sure you wish to delete this item?');" })</td>
+            </tr>
+
+            <tr>
+                <td>@Html.ActionLink("Back to Index", "Index", "User", new { @class = "functionbtn" })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

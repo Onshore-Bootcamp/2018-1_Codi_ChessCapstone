@@ -1,0 +1,53 @@
+﻿@using CapstonePL.Models
+@model List<PlayerPO>
+@{
+    ViewBag.Title = "ReadPlayerByName";
+}
+<table class="table">
+    <tbody class="table">
+        @foreach (PlayerPO displayObject in Model)
+        {
+            <tr>
+                <th>Name</th>
+                <td>@displayObject.Name</td>
+            </tr>
+            <tr>
+                <th>Peak Rating</th>
+                <td>@displayObject.PeakRating</td>
+            </tr>
+            <tr>
+                <th>Birth Date</th>
+                <td>@displayObject.BirthDate</td>
+            </tr>
+            <tr>
+                <th>Death Date</th>
+                <td>@displayObject.Dead</td>
+            </tr>
+            <tr>
+                <th>Country of Origin</th>
+                <td>@displayObject.CountryOfOrigin</td>
+            </tr>
+            <tr>
+                <th>Country Represented Last</th>
+                <td>@displayObject.CountryRepresented</td>
+            </tr>
+            <tr>
+                <th>@Html.ActionLink("Back to Index", "Index", "Player", new { @class = "functionbtn" })</th>
+            </tr>
+
+            if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] >= 2)
+            {
+                <tr>
+                    <th>
+                        @Html.ActionLink("Update Information", "UpdatePlayer", "Player", new { PlayerId = @displayObject.PlayerId }, new { @class = "functionbtn", onclick = "return confirm('Are you sure you wish to update this item?');" })
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.ActionLink("Add new Game", "AddGame", "Game", new { Name = @displayObject.Name }, new { @class = "functionbtn" })
+                    </th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

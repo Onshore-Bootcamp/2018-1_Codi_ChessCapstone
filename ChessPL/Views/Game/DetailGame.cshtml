@@ -1,0 +1,58 @@
+﻿@using CapstonePL.Models
+@model List<GamePO>
+@{
+    ViewBag.Title = "DetailGame";
+}
+<table class="table">
+    <thead>
+
+    </thead>
+    <tbody class="table">
+        @foreach (GamePO displayObject in Model)
+        {
+            <tr>
+                <th>Player Playing White</th>
+                <td>@displayObject.WhiteName</td>
+            </tr>
+            <tr>
+                <th>White Player Rating</th>
+                <td>@displayObject.WhiteRating</td>
+            </tr>
+            <tr>
+                <th>Player Playing Black</th>
+                <td>@displayObject.BlackName</td>
+            </tr>
+            <tr>
+                <th>Black Player Rating</th>
+                <td>@displayObject.BlackRating</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>@displayObject.Location</td>
+            </tr>
+            <tr>
+                <th>Date Game was Played</th>
+                <td>@displayObject.DatePlayed</td>
+            </tr>
+            <tr>
+                <th>Winner of the Game</th>
+                <td>@displayObject.Winner</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.ActionLink("Back to Index", "Index", "Game", new { @class = "functionbtn" })
+                </th>
+            </tr>
+
+            if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] >= 2)
+            {
+                <tr>
+                    <th>
+                        @Html.ActionLink("Update Information", "UpdateGame", "Game", new { gameId = displayObject.GameId }, new { @class = "functionbtn", onclick = "return confirm('Are you sure you wish to update this item?');" })
+                    </th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+@if ((int?)Session["UserRoleId"] == null || (int?)Session["UserRoleId"] <= 0)
+{
+    Session["UserRoleId"] = 0;
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div>
+        <div id="navigation" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("ChessReference.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="">
+                    <ul class="nav navbar-nav navbar-right">
+                        @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] >= 2)
+                        {
+                            <li class="navbuttons">@Html.ActionLink("Users", "Index", "User")</li>
+                        }
+
+                        @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] >= 1)
+                        {
+                            <li class="navbuttons">@Html.ActionLink("Games", "Index", "Game")</li>
+
+                            <li class="navbuttons">@Html.ActionLink("Players", "Index", "Player")</li>
+
+                            <li class="navbuttons">@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                        }
+
+                        <li class="navbuttons">@Html.ActionLink("About", "About", "Home")</li>
+
+                        @if ((int?)Session["UserRoleId"] == null || (int?)Session["UserRoleId"] == 0)
+                        {
+                            <li class="navbuttons">@Html.ActionLink("Login", "UserLogin", "User")</li>
+
+                            <li class="navbuttons">@Html.ActionLink("Register", "AddUser", "User")</li>
+                        }
+
+                        @if ((int?)Session["UserRoleId"] != null && (int)Session["UserRoleId"] > 0)
+                        {
+                            <li class="navbuttons">@Html.ActionLink("Logout", "UserLogout", "User")</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
